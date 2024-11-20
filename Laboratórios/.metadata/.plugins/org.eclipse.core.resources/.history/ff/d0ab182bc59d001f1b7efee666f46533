@@ -1,0 +1,26 @@
+package lab2_java;
+import java.util.Scanner;
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		Biblioteca bibliotecaLivros = new Biblioteca();
+		int opcao;
+		System.out.println("============================================");
+		System.out.println("\tBIBLIOTECA DO LUCÃO");
+		System.out.println("============================================");
+		do
+		{
+			System.out.printf("1 - Adicionar livro a biblioteca:\n"
+					+ "2 - Procurar um livro\n"
+					+ "3 - Mostrar todos os livros da biblioteca\n"
+					+ "Digite a opção: ");
+			opcao = scanner.nextInt();
+			
+		}while(opcao >= 1 && opcao <= 3);
+		
+
+		System.out.print("FIM");
+	}
+
+}

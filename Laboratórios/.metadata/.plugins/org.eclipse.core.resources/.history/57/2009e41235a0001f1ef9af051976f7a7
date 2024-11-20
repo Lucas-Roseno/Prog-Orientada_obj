@@ -1,0 +1,34 @@
+package lab2_java;
+
+public class Biblioteca {
+	private Livro[] livros = new Livro[100];
+	private int cont = 0;
+	
+	public void adicionarLivro (Livro novoLivro)
+	{
+		livros[cont] = novoLivro;
+		cont++;
+	}
+	
+	public void buscarLivro (String titulo, Biblioteca bibliotecaLivros)
+	{
+		String tituloComparacao;
+		
+		for(int i = 0; i < 100; i++)
+		{
+			tituloComparacao = bibliotecaLivros.livros[i].getTitulo();
+			if(tituloComparacao.equals(titulo))
+			{
+				Autor autorPesquisado = new Autor();
+				autorPesquisado = bibliotecaLivros.livros[i].getAutor();
+				
+				System.out.printf("\nTitulo: %s\n"
+						+ "ISBN: %s\n"
+						+ "Autor: %s\n"
+						+ "Data nascimento do autor: %s\n\n",bibliotecaLivros.livros[i].getTitulo(), bibliotecaLivros.livros[i].getISBN(),
+						autorPesquisado.getNome(), autorPesquisado.getDataNascimento());
+				break;
+			}
+		}
+	}
+}

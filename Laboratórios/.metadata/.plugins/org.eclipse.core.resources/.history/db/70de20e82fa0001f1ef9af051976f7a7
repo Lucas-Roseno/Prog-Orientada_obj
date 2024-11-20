@@ -1,0 +1,9 @@
+package lab2_java;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Biblioteca {
+	private Livro[] livros = new Livro[100];
+	
+}
