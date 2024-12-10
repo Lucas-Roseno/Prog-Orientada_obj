@@ -1,1 +1,0 @@
-INDEX VERSION 1.134+/home/lucas/CEFET/2 período/Prog-Orientada_obj/Laboratórios/lab2_java/.metadata/.plugins/org.eclipse.jdt.core
