@@ -1,0 +1,13 @@
+!SESSION 2024-12-10 16:42:54.361 -----------------------------------------------
+eclipse.buildId=4.34.0.20241128-0756
+java.version=21.0.5
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=pt_BR
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.java.product -data /home/lucas/CEFET/2 período/Prog-Orientada_obj/Laboratórios/Java/lab04_java/src/lab04_java
+
+!ENTRY ch.qos.logback.classic 1 0 2024-12-10 16:42:55.640
+!MESSAGE Activated before the state location was initialized. Retry after the state location is initialized.
+
+!ENTRY ch.qos.logback.classic 1 0 2024-12-10 16:42:56.294
+!MESSAGE Logback config file: /home/lucas/CEFET/2 período/Prog-Orientada_obj/Laboratórios/Java/lab04_java/src/lab04_java/.metadata/.plugins/org.eclipse.m2e.logback/logback.2.7.0.20241001-1350.xml
