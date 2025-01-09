@@ -12,12 +12,20 @@ protected:
     string habilitacao;
     
 public:
+    Motorista() = default;
     Motorista(string _nome, string _cpf, string _habilitacao);
     string getDetalhes();
+    
+    // Getters
+    string getNome() const;
+    string getCpf() const;
+    string getHabilitacao() const;
+
+    // Setters
+    void setNome(const string& _nome);
+    void setCpf(const string& _cpf);
+    void setHabilitacao(const string& _habilitacao);
+
 };
 
-
-
-#endif 
-
-
+#endif

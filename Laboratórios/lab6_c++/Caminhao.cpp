@@ -4,7 +4,7 @@ Caminhao::Caminhao(string placa, string modelo, double capacidadeCarga): Veiculo
     capacidadeCarga(capacidadeCarga){};
 
 string Caminhao::getDetalhes(){
-    return Veiculo::getDetalhes() + "\nCapacidade de carga: " + to_string(capacidadeCarga);
+    return Veiculo::getDetalhes() + "\n\tCapacidade de carga: " + to_string(capacidadeCarga) + "\n";
 }
 
 double Caminhao::calcularCusto(double distancia){
