@@ -6,14 +6,23 @@ class Viagem
 {
 protected:
     Motorista motorista;
-    Veiculo veiculo;
+    Veiculo veiculo; 
     double distancia;
 
 public:
-    Viagem(Motorista motorista, Veiculo veiculo, double distania);
+    Viagem() = default;
+    Viagem(Motorista motorista, Veiculo veiculo, double distancia); 
+
     double calcularCustoTotal();
-    string getDetalhes();
-    
+    std::string getDetalhes();
+
+    // Getters
+    Motorista getMotorista();
+    Veiculo getVeiculo(); 
+    double getDistancia();
+
+    // Setters
+    void setMotorista(Motorista motorista);
+    void setVeiculo(Veiculo veiculo); 
+    void setDistancia(double distancia);
 };
-
-

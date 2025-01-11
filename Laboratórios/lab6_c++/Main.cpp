@@ -1,20 +1,21 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <algorithm> // Para std::transform
-#include <cctype>    // Para std::toupper
-#include <memory>    // Para std::unique_ptr
+#include <algorithm> 
+#include <cctype>    
+#include <memory>    
 #include "Motorista.hpp"
 #include "Veiculo.hpp"
 #include "Carro.hpp"
 #include "Moto.hpp"
 #include "Caminhao.hpp"
+#include "Viagem.hpp"
 
 using namespace std;
 
-Motorista encontrarMotorista(const string& cpf, const vector<Motorista>& motoristas)
+Motorista encontrarMotorista(string cpf, vector<Motorista> motoristas)
 {
-    for (const auto& motorista : motoristas)
+    for (Motorista motorista : motoristas)
     {
         if (motorista.getCpf() == cpf)
         {
@@ -25,29 +26,51 @@ Motorista encontrarMotorista(const string& cpf, const vector<Motorista>& motoris
     return Motorista();
 }
 
-Veiculo* encontrarVeiculo(const string& placa, const vector<unique_ptr<Veiculo>>& veiculos)
+shared_ptr<Veiculo> encontrarVeiculo(string placa, vector<shared_ptr<Veiculo>> veiculos)
 {
-    for (const auto& veiculo : veiculos)
+    for (const auto &veiculo : veiculos)
     {
         if (veiculo->getPlaca() == placa)
         {
-            return veiculo.get();
+            return veiculo;
         }
     }
     cout << "Veículo não encontrado!\n";
     return nullptr;
 }
 
+bool podeDirigir(shared_ptr<Veiculo> veiculoTemp, Motorista motoristaTemp)
+{
+    if (dynamic_cast<Carro *>(veiculoTemp.get()))
+    {
+        return motoristaTemp.getHabilitacao() == "B" || motoristaTemp.getHabilitacao() == "C" || motoristaTemp.getHabilitacao() == "D" || motoristaTemp.getHabilitacao() == "E";
+    }
+    else if (dynamic_cast<Moto *>(veiculoTemp.get()))
+    {
+        return motoristaTemp.getHabilitacao() == "A";
+    }
+    else if (dynamic_cast<Caminhao *>(veiculoTemp.get()))
+    {
+        return motoristaTemp.getHabilitacao() == "C" || motoristaTemp.getHabilitacao() == "D" || motoristaTemp.getHabilitacao() == "E";
+    }
+    return false;
+}
+
 int main()
 {
     vector<Motorista> motoristas;
-    vector<unique_ptr<Veiculo>> veiculos; // Lista de ponteiros para Veiculo
+    vector<shared_ptr<Veiculo>> veiculos;
+    vector<Viagem> viagens;
+
     Motorista motoristaTemp;
-    Veiculo* veiculoTemp = nullptr;
+    shared_ptr<Veiculo> veiculoTemp = nullptr;
+
     string nome, habilitacao, cpf, placa, modelo;
     int assentos, cilindradas;
-    double capacidadeCarga;
+    double capacidadeCarga, distancia;
     int opcao;
+
+    bool achouViagem = false, achouMotorista = false, achouVeiculo = false;
 
     while (true)
     {
@@ -55,6 +78,9 @@ int main()
              << "1 - Cadastrar motorista\n"
              << "2 - Cadastrar veículo\n"
              << "3 - Registrar viagem\n"
+             << "4 - Exibir detalhes de uma viagem\n"
+             << "5 - Excluir motorista\n"
+             << "6 - Excluir veículo\n"
              << "0 - Sair\n"
              << "Opção: ";
         cin >> opcao;
@@ -104,17 +130,17 @@ int main()
             case 1:
                 cout << "Assentos: ";
                 cin >> assentos;
-                veiculos.emplace_back(make_unique<Carro>(placa, modelo, assentos));
+                veiculos.emplace_back(make_shared<Carro>(placa, modelo, assentos));
                 break;
             case 2:
                 cout << "Cilindradas: ";
                 cin >> cilindradas;
-                veiculos.emplace_back(make_unique<Moto>(placa, modelo, cilindradas));
+                veiculos.emplace_back(make_shared<Moto>(placa, modelo, cilindradas));
                 break;
             case 3:
                 cout << "Capacidade de carga: ";
                 cin >> capacidadeCarga;
-                veiculos.emplace_back(make_unique<Caminhao>(placa, modelo, capacidadeCarga));
+                veiculos.emplace_back(make_shared<Caminhao>(placa, modelo, capacidadeCarga));
                 break;
             default:
                 cout << "Opção inválida!" << endl;
@@ -136,10 +162,11 @@ int main()
             cout << "Digite o CPF do motorista: ";
             getline(cin, cpf);
             motoristaTemp = encontrarMotorista(cpf, motoristas);
-            
+
             if (motoristaTemp.getNome() != "")
             {
-                cout << "Motorista encontrado.\n" << motoristaTemp.getDetalhes() ;
+                cout << "Motorista encontrado.\n"
+                     << motoristaTemp.getDetalhes();
 
                 cout << "Digite a placa do veículo: ";
                 getline(cin, placa);
@@ -147,13 +174,87 @@ int main()
 
                 if (veiculoTemp != nullptr)
                 {
-                    cout << "Veículo encontrado:\n" << veiculoTemp->getDetalhes();
-                }
-                
-            }
-            
+                    cout << "Veículo encontrado:\n"
+                         << veiculoTemp->getDetalhes();
 
+                    if (podeDirigir(veiculoTemp, motoristaTemp))
+                    {
+                        cout << "Motorista pode dirigir o veículo!\n";
+                        cout << "Digite a distância da viagem: ";
+                        cin >> distancia;
+
+                        viagens.emplace_back(motoristaTemp, *veiculoTemp, distancia);
+                        cout << "Viagem registrada com sucesso!\n";
+                    }
+                }
+            }
             break;
+        case 4:
+            if (viagens.empty())
+            {
+                cout << "Ainda não foi cadastrada nenhuma viagem!\n";
+                break;
+            }
+
+            cout << "Digite o CPF do motorista: ";
+            getline(cin, cpf);
+            cout << "Digite a placa do veículo: ";
+            getline(cin, placa);
+
+            for (Viagem viagem : viagens)
+            {
+                if (cpf == viagem.getMotorista().getCpf() && placa == viagem.getVeiculo().getPlaca())
+                {
+                    cout << viagem.getDetalhes() << endl;
+                    achouViagem = true;
+                    break;
+                }
+            }
+            if (!achouViagem)
+            {
+                cout << "Não há viagem com esse motorista e veículo!\n";
+            }
+            break;
+
+        case 5:
+            cout << "Digite o CPF do motorista: ";
+            getline(cin, cpf);
+            for (auto it = motoristas.begin(); it != motoristas.end(); ++it)
+            {
+                if (it->getCpf() == cpf)
+                {
+                    motoristas.erase(it);
+                    cout << "Motorista removido com sucesso!\n";
+                    achouMotorista = true;
+                    break;
+                }
+            }
+
+            if (!achouMotorista)
+            {
+                cout << "Motorista não encontrado!\n";
+            }
+            break;
+
+        case 6:
+            cout << "Digite a placa do veículo: ";
+            getline(cin, placa);
+            for (auto it = veiculos.begin(); it != veiculos.end(); ++it)
+            {
+                if ((*it)->getPlaca() == placa)
+                {
+                    veiculos.erase(it);
+                    cout << "Veículo removido com sucesso!\n";
+                    achouVeiculo = true;
+                    break;
+                }
+            }
+            if (!achouVeiculo)
+            {
+                cout << "Veículo não encontrado!\n";
+            }
+            break;
+
         default:
             break;
         }
