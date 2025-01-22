@@ -14,7 +14,10 @@ public class Pacote {
 		this.cpf = cpf;
 	}
 	
-	
+	public String toString() {
+		return "Código do pacote: " + codigoPacote + "\nDescrição: " + descricao + "\nPrioridade: "
+				+ prioridade + "\nCPF do cliente: " + cpf;
+	}
 	public int getCodigoPacote() {
 		return codigoPacote;
 	}

@@ -10,6 +10,9 @@ public class Cliente {
         this.cpf = cpf;
     }
 
+    public String toString() {
+    	return "Nome: " + nome + "\nCPF: " + cpf;
+    }
 
     public String getNome() {
         return nome;
