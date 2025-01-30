@@ -1,16 +1,32 @@
 #pragma once
 #include "Modulo.hpp"
+#include "ModuloComAstronauta.hpp"
+#include "ModuloComFogo.hpp"
+#include "ModuloNormal.hpp"
+#include "ModuloObstaculo.hpp"
+#include "ModuloSeguranca.hpp"
+#include "ModuloVazio.hpp"
+#include "Astronauta.hpp"
 #include <vector>
 using namespace std;
 
 class EstacaoEspacial
 {
 private:
-    vector<Modulo*> matriz;
+    vector<vector<Modulo*>> matriz; 
+    vector<Astronauta> astronautas; 
+    int linhas;
+    int colunas;
 public:
-    EstacaoEspacial(int linhas, int colunas);
-    ~EstacaoEspacial();
+    EstacaoEspacial(int _linhas, int _colunas);
 
-    void setModulo(int linha, int coluna, Modulo* modulo);
-    Modulo* getModulo(int linha, int coluna) const;
+    void adicionarModulo(int _linha, int _coluna, char _tipo);
+    void adicionarAstronauta(const Astronauta& _astronauta);
+
+    const vector<vector<Modulo*>>& getMatriz() const;
+    const vector<Astronauta>& getAstronautas() const;
+    int getLinhas() const;
+    int getColunas() const;
+
+    void setPosicoes(int _x, int _y, int cont);
 };

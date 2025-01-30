@@ -1,14 +1,17 @@
-#include "Astrounauta.hpp"
+#include "Astronauta.hpp"
 #include <sstream>
 
-Astrounauta::Astrounauta(string _nome, int _nivelSaude, bool _atendUrgente, int _x, int _y)
+Astronauta::Astronauta(string _nome, int _nivelSaude, bool _atendUrgente, int _x, int _y)
     : nome(_nome), nivelSaude(_nivelSaude), atendimentoUrgente(_atendUrgente), x(_x), y(_y) {}
 
-bool Astrounauta::isAtendimentoUrgente(){
+Astronauta::Astronauta(string _nome, int _nivelSaude, bool _atendUrgente):
+    nome(_nome), nivelSaude(_nivelSaude), atendimentoUrgente(_atendUrgente){};
+
+bool Astronauta::isAtendimentoUrgente(){
     return atendimentoUrgente;
 }
 
-string Astrounauta::toString() const {
+string Astronauta::toString() const {
     ostringstream oss;
     oss << "Astronauta: " << nome << "\n"
         << "Nível de Saúde: " << nivelSaude << "\n"
@@ -18,27 +21,27 @@ string Astrounauta::toString() const {
 }
 
 // Getters
-int Astrounauta::getX() const {
+int Astronauta::getX() const {
     return x;
 }
 
-int Astrounauta::getY() const {
+int Astronauta::getY() const {
     return y;
 }
 
-string Astrounauta::getNome() const {
+string Astronauta::getNome() const {
     return nome;
 }
 
-int Astrounauta::getNivelSaude() const {
+int Astronauta::getNivelSaude() const {
     return nivelSaude;
 }
 
 // Setters
-void Astrounauta::setX(int _x) {
+void Astronauta::setX(int _x) {
     x = _x;
 }
 
-void Astrounauta::setY(int _y) {
+void Astronauta::setY(int _y) {
     y = _y;
 }

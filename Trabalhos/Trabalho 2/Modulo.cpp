@@ -4,6 +4,10 @@ Modulo::Modulo(char tipo) : tipo(tipo) {}
 
 Modulo::Modulo() : tipo(' ') {}
 
-char Modulo::getTipo() {
+bool Modulo::podeAcessar(){
+    return false;
+}
+
+char Modulo::getTipo() const{
     return tipo;
 }

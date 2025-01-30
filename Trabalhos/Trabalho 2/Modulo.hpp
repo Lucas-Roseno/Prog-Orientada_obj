@@ -9,6 +9,6 @@ public:
     Modulo(char tipo);
     Modulo();
 
-    char getTipo();
-    virtual bool podeAcessar() = 0;
+    char getTipo() const;
+    virtual bool podeAcessar();
 };

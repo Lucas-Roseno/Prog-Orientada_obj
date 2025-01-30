@@ -2,7 +2,7 @@
 #include <string>
 using namespace std;
 
-class Astrounauta
+class Astronauta
 {
 private:
     string nome;
@@ -12,7 +12,8 @@ private:
     int y;
 
 public:
-    Astrounauta(string _nome, int _nivelSaude, bool _atendUrgente, int _x, int _y);
+    Astronauta(string _nome, int _nivelSaude, bool _atendUrgente, int _x, int _y);
+    Astronauta(string _nome, int _nivelSaude, bool _atendUrgente);
     bool isAtendimentoUrgente();
     string toString() const;
 
