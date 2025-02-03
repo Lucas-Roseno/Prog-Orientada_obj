@@ -19,7 +19,7 @@ private:
     int colunas;
 public:
     EstacaoEspacial(int _linhas, int _colunas);
-
+    EstacaoEspacial();
     void adicionarModulo(int _linha, int _coluna, char _tipo);
     void adicionarAstronauta(const Astronauta& _astronauta);
 

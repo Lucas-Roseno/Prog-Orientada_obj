@@ -5,6 +5,11 @@ EstacaoEspacial::EstacaoEspacial(int _linhas, int _colunas) : linhas(_linhas), c
     matriz.resize(linhas, vector<Modulo*>(colunas, nullptr));
 }
 
+EstacaoEspacial::EstacaoEspacial() : linhas(0), colunas(0)
+{
+    matriz.resize(linhas, vector<Modulo*>(colunas, nullptr));
+}
+
 
 void EstacaoEspacial::adicionarModulo(int _linha, int _coluna, char _tipo)
 {

@@ -16,5 +16,8 @@ private:
     vector<vector<int>> distancias;
 public:
     RoboDeResgate(int posX, int posY, EstacaoEspacial _estacao);
-    
+    RoboDeResgate();
+
+    void printMatriz();
+    void iniciarResgate();
 };

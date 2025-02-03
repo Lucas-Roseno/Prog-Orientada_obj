@@ -16,7 +16,7 @@ int main()
         return -1;
     }
 
-    int linhas, colunas;
+    int linhas, colunas, xRobo, yRobo;
     arqEntrada >> linhas >> colunas;
     EstacaoEspacial estacao = EstacaoEspacial(linhas, colunas);
 
@@ -28,17 +28,13 @@ int main()
             char tipo;
             arqEntrada >> tipo;
             estacao.adicionarModulo(i, j, tipo);
+            if (tipo == 'S')
+            {
+                xRobo = i;
+                yRobo = j;
+            }
+            
         }
-    }
-    
-    auto &matriz = estacao.getMatriz();
-    for (int i = 0; i < linhas; ++i)
-    {
-        for (int j = 0; j < colunas; ++j)
-        {
-            cout << '[' << matriz[i][j]->getTipo() << ']';
-        }
-        cout << endl;
     }
 
     // lendo os astronautas por linha
@@ -87,7 +83,7 @@ int main()
         estacao.adicionarAstronauta(astroTemp);
     }
 
-    // pegando a posicao
+    // pegando a posicao dos astronautas
     int cont = 0;
     while (getline(arqEntrada, linha))
     {
@@ -108,11 +104,8 @@ int main()
         cont++;
     }
 
-    for (Astronauta astronauta : estacao.getAstronautas())
-    {
-        cout << astronauta.toString() << endl
-             << endl;
-    }
+    RoboDeResgate robo = RoboDeResgate(xRobo, yRobo, estacao);
+    robo.printMatriz();
 
     arqEntrada.close();
 
