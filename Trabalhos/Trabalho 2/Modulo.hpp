@@ -11,4 +11,5 @@ public:
 
     char getTipo() const;
     virtual bool podeAcessar();
+    void setTipo(char ch);
 };

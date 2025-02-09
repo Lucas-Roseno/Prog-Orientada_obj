@@ -13,10 +13,10 @@ bool Astronauta::isAtendimentoUrgente(){
 
 string Astronauta::toString() const {
     ostringstream oss;
-    oss << "Astronauta: " << nome << "\n"
-        << "Nível de Saúde: " << nivelSaude << "\n"
-        << "Atendimento Urgente: " << (atendimentoUrgente ? "Sim" : "Não") << "\n"
-        << "Posição: (" << x << ", " << y << ")";
+    oss << nome
+        << ": Saúde " << nivelSaude
+        << ", Atendimento Médico Urgente: " << (atendimentoUrgente ? "Sim" : "Não")
+        << ", Posição: (" << x << ", " << y << ")" << endl;
     return oss.str();
 }
 

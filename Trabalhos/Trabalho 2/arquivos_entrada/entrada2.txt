@@ -1,0 +1,13 @@
+5 5
+S...A
+.###.
+.#~#.
+.#~#.
+A...A
+John Doe,80,0
+Jane Smith,60,1
+Alex Johnson,90,0
+Posições dos astronautas na matriz:
+John Doe: (0,4)
+Jane Smith: (4,4)
+Alex Johnson: (4,0)

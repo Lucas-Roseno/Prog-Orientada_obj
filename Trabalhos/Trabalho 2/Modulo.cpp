@@ -11,3 +11,7 @@ bool Modulo::podeAcessar(){
 char Modulo::getTipo() const{
     return tipo;
 }
+
+void Modulo::setTipo(char ch){
+    tipo = ch;
+}

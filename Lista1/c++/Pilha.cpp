@@ -2,7 +2,7 @@
 
 Pilha::Pilha(): topo(NULL){};
 
-Pilha::Pilha(string nome): topo(nullptr){};
+
 
 bool Pilha::estaVazia(){
     return (topo == NULL);

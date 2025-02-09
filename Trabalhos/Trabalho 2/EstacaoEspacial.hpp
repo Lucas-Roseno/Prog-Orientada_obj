@@ -22,6 +22,7 @@ public:
     EstacaoEspacial();
     void adicionarModulo(int _linha, int _coluna, char _tipo);
     void adicionarAstronauta(const Astronauta& _astronauta);
+    Astronauta getAstroPorPosicao(int x, int y);
 
     const vector<vector<Modulo*>>& getMatriz() const;
     const vector<Astronauta>& getAstronautas() const;

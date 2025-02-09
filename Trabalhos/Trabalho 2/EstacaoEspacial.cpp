@@ -35,6 +35,18 @@ void EstacaoEspacial::adicionarModulo(int _linha, int _coluna, char _tipo)
     }
 }
 
+Astronauta EstacaoEspacial::getAstroPorPosicao(int x, int y){
+    for (Astronauta astronauta : astronautas)
+    {
+        if (astronauta.getX() == x && astronauta.getY() == y)
+        {
+            return astronauta;
+        }
+        
+    }
+    return Astronauta("", 0, false);
+}
+
 void EstacaoEspacial::adicionarAstronauta(const Astronauta& _astronauta)
 {
     astronautas.push_back(_astronauta);

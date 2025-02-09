@@ -1,0 +1,20 @@
+12 12
+S...........
+.###..#..A..
+.###..#...#.
+.~~~..F..A..
+.~~~..F.A.#.
+A~~~..F.F.#.
+.~~~..F...#.
+.....F....#.
+..A..F....A.
+.......###..
+...A..F..A..
+............
+John Glenn,90,0
+Eileen Collins,70,1
+Mae Jemison,65,0
+Posições dos astronautas na matriz:
+John Glenn: (1,9)
+Eileen Collins: (5,0)
+Mae Jemison: (10,3)

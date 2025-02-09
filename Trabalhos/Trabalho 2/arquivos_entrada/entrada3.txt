@@ -1,0 +1,15 @@
+7 7
+S......
+.###..A
+.###...
+.~~~..A
+.~~~..F
+A~~~..F
+......A
+Alan Shepard,70,0
+Sally Ride,55,1
+Chris Hadfield,85,0
+Posições dos astronautas na matriz:
+Alan Shepard: (1,6)
+Sally Ride: (3,6)
+Chris Hadfield: (6,6)
