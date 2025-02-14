@@ -1,0 +1,12 @@
+Relatório de Resgate:
+- Número de astronautas resgatados: 1
+	- Chris Hadfield: Saúde 85, Atendimento Médico Urgente: Não, Posição: (1, 6)
+- Lista de astronautas não resgatados:
+- Total de passos: 14 passos.
+[*][*][*][*][*][*][*]
+[.][#][#][#][*][*][*]
+[.][#][#][#][.][.][.]
+[.][~][~][~][.][.][.]
+[.][~][~][~][.][.][.]
+[.][~][~][~][.][.][.]
+[.][.][.][.][.][.][.]

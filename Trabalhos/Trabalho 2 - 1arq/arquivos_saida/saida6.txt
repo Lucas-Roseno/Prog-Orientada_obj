@@ -1,0 +1,17 @@
+Relatório de Resgate:
+- Número de astronautas resgatados: 2
+	- Pedro Duque: Saúde 75, Atendimento Médico Urgente: Não, Posição: (9, 9)
+	- Samantha Cristoforetti: Saúde 60, Atendimento Médico Urgente: Sim, Posição: (7, 8)
+- Lista de astronautas não resgatados:
+	- Chris Hadfield: Saúde 85, Atendimento Médico Urgente: Não, Posição: (4, 8)
+- Total de passos: 40 passos.
+[*][.][.][.][.][.][.][.][.][.]
+[*][#][#][#][.][.][#][.][.][#]
+[*][#][#][#][.][.][#][.][.][.]
+[*][~][~][~][.][.][F][.][.][#]
+[*][~][~][~][.][.][F][.][A][.]
+[*][~][~][~][.][.][F][.][F][.]
+[*][~][~][~][.][.][F][.][.][.]
+[*][*][*][*][.][F][.][.][*][*]
+[*][.][.][*][.][.][.][.][*][*]
+[*][*][*][*][*][*][*][*][*][*]

@@ -1,0 +1,19 @@
+Relatório de Resgate:
+- Número de astronautas resgatados: 3
+	- Mae Jemison: Saúde 85, Atendimento Médico Urgente: Não, Posição: (7, 0)
+	- Chris Hadfield: Saúde 75, Atendimento Médico Urgente: Não, Posição: (11, 0)
+	- Ed White: Saúde 65, Atendimento Médico Urgente: Sim, Posição: (3, 11)
+- Lista de astronautas não resgatados:
+- Total de passos: 44 passos.
+[*][*][*][*][*][*][*][*][*][*][*][*]
+[*][.][#][#][#][.][.][.][.][.][.][*]
+[*][.][.][.][#][.][.][.][.][.][.][*]
+[*][.][F][.][*][*][*][*][*][*][*][*]
+[*][#][F][.][*][.][.][#][.][.][.][.]
+[*][#][F][.][*][.][.][#][.][.][.][.]
+[*][.][.][.][*][#][.][.][.][.][.][.]
+[*][*][*][*][*][.][.][.][.][.][.][.]
+[*][.][.][.][.][.][#][.][.][.][.][.]
+[*][.][.][.][.][.][.][.][.][.][.][.]
+[*][.][.][.][.][.][.][.][.][.][.][.]
+[*][.][.][.][.][.][.][.][.][.][.][.]

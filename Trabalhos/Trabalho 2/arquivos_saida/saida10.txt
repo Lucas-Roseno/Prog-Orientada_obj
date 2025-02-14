@@ -1,0 +1,19 @@
+Relatório de Resgate:
+- Número de astronautas resgatados: 3
+	- Eileen Collins: Saúde 70, Atendimento Médico Urgente: Sim, Posição: (5, 0)
+	- Mae Jemison: Saúde 65, Atendimento Médico Urgente: Não, Posição: (10, 3)
+	- John Glenn: Saúde 90, Atendimento Médico Urgente: Não, Posição: (1, 9)
+- Lista de astronautas não resgatados:
+- Total de passos: 46 passos.
+[*][*][*][*][*][*][*][*][*][*][.][.]
+[*][#][#][#][.][.][#][*][*][*][.][.]
+[*][#][#][#][.][.][#][.][.][.][#][.]
+[*][~][~][~][.][.][F][.][.][.][.][.]
+[*][~][~][~][.][.][F][.][.][.][#][.]
+[*][~][~][~][.][.][F][.][F][.][#][.]
+[*][~][~][~][.][.][F][.][.][.][#][.]
+[*][*][*][*][.][F][.][.][.][.][#][.]
+[*][.][.][*][.][F][.][.][.][.][.][.]
+[*][.][.][*][.][.][.][#][#][#][.][.]
+[*][*][*][*][.][.][F][.][.][.][.][.]
+[.][.][.][.][.][.][.][.][.][.][.][.]

@@ -1,0 +1,159 @@
+#include "RoboDeResgate.hpp"
+#include <queue>
+#include <iomanip> 
+
+RoboDeResgate::RoboDeResgate(int posX, int posY, EstacaoEspacial _estacao) : posicaoInicialX(posX),
+    posicaoInicialY(posY), estacao(_estacao){
+    int linhas = estacao.getLinhas();
+    int colunas = estacao.getColunas();
+    visitado.resize(linhas, vector<bool>(colunas, false));
+    distancias.resize(linhas, vector<int>(colunas, -1));
+};
+
+RoboDeResgate::RoboDeResgate(): posicaoInicialX(0), posicaoInicialY(0), passos(0){
+    int linhas = estacao.getLinhas();
+    int colunas = estacao.getColunas();
+    visitado.resize(linhas, vector<bool>(colunas, false));
+    distancias.resize(linhas, vector<int>(colunas, -1));
+}
+
+void RoboDeResgate::printMatriz(const vector<vector<Modulo*>> &matriz){
+    for (const auto& linha : matriz) {
+        for (const auto& modulo : linha) {
+            if (modulo != nullptr) {
+                cout << '[' << modulo->getTipo() << "] ";
+            } else {
+                cout << "[ ] ";
+            }
+        }
+        cout << endl;
+    }
+    cout << endl;
+}
+
+void RoboDeResgate::iniciarResgate(){
+    int numLinhas = estacao.getLinhas();
+    int numColunas = estacao.getColunas();
+
+    vector<vector<Modulo*>> matrizCopia(numLinhas, vector<Modulo*>(numColunas, nullptr));
+    for (int i = 0; i < numLinhas; i++) {
+        for (int j = 0; j < numColunas; j++) {
+            if (estacao.getMatriz()[i][j] != nullptr) {
+                matrizCopia[i][j] = new Modulo(*estacao.getMatriz()[i][j]);  // Criando uma cópia nova
+            }
+        }
+    }
+
+
+    
+    queue<int> posX;
+    queue<int> posY;
+    posX.push(posicaoInicialX);
+    posY.push(posicaoInicialY);
+
+    visitado[posicaoInicialX][posicaoInicialY] = true;
+    distancias[posicaoInicialX][posicaoInicialY] = 0;
+
+    //Direções: cima, baixo, esquerda, direita
+    int dx[] = {-1, 1, 0, 0};
+    int dy[] = {0, 0, -1, 1};
+    int contPassos = 0;
+
+    while (!posX.empty() && !posY.empty())
+    {
+        int x = posX.front();
+        int y = posY.front();
+    
+        posX.pop();
+        posY.pop();
+
+        printMatriz(matrizCopia);
+        for (int i = 0; i < 4; i++)
+        {
+            int nx = x + dx[i];
+            int ny = y + dy[i];
+
+            //Fora dos limites
+            if (nx < 0 || ny < 0 || nx >= numLinhas || ny >= numColunas)
+            {
+                continue;
+            }
+
+            char tipo = estacao.getMatriz()[nx][ny]->getTipo();
+
+            if (tipo == '#' || tipo == '~' || fogoAoRedor(nx, ny))
+            {
+                continue;
+            }
+            
+            if (visitado[nx][ny])
+            {
+                continue;
+            }
+            
+            visitado[nx][ny] = true;
+            matrizCopia[nx][ny]->setTipo('*');
+            distancias[nx][ny] = distancias[x][y] + 1;
+            
+
+            if (tipo == 'A')
+            {
+                Astronauta astro = estacao.getAstroPorPosicao(nx, ny);
+                
+                resgatados.push_back(astro);
+                cout << "\nAstronauta resgatado: " << astro.getNome()
+                    << " em (" << nx << ", " << ny << ")\n";
+            
+            }
+
+            posX.push(nx);
+            posY.push(ny);
+            contPassos++;
+        }
+        
+    }
+    cout << "\nTotal de passos para o resgate: " << contPassos << endl << endl;
+
+    for (int i = 0; i < numLinhas; i++) {
+        for (int j = 0; j < numColunas; j++) {
+            cout << setw(4) << distancias[i][j]; // Define largura fixa de 4 caracteres
+        }
+        cout << endl;
+    }
+
+    
+}
+
+bool RoboDeResgate::fogoAoRedor(int x, int y){
+    int numLinhas = estacao.getLinhas();
+    int numColunas = estacao.getColunas();
+    //Direções: cima, baixo, esquerda, direita, dSupEsq, dSupDirei, dInfEsq, dInfDire
+    int dx[] = {-1, 1, 0, 0, -1, 1, -1, 1};
+    int dy[] = {0, 0, -1, 1, -1, -1, 1, 1};
+    
+
+    for (int i = 0; i < 8; i++)
+    {
+        int nx = x + dx[i];
+        int ny = y + dy[i];
+
+        if (nx < 0 || ny < 0 || nx >= numLinhas || ny >= numColunas)
+        {
+            continue;
+        }
+
+        char tipo = estacao.getMatriz()[nx][ny]->getTipo();
+        if (tipo == 'F')
+        {
+            if (estacao.getMatriz()[x][y]->getTipo() == 'A')
+            {
+                Astronauta astroNaoResgat = estacao.getAstroPorPosicao(x, y);
+                naoResgatados.push_back(astroNaoResgat);
+            }
+            
+            return true;
+        }        
+    }
+    return false;
+    
+}

@@ -1,0 +1,13 @@
+Relatório de Resgate:
+- Número de astronautas resgatados: 3
+	- Buzz Aldrin: Saúde 95, Atendimento Médico Urgente: Não, Posição: (4, 0)
+	- Gagarin: Saúde 75, Atendimento Médico Urgente: Não, Posição: (5, 4)
+	- Neil Armstrong: Saúde 60, Atendimento Médico Urgente: Sim, Posição: (0, 5)
+- Lista de astronautas não resgatados:
+- Total de passos: 28 passos.
+[*][#][#][.][*][*]
+[*][#][#][.][*][#]
+[*][~][~][.][*][#]
+[*][~][~][.][*][#]
+[*][*][*][*][*][#]
+[*][*][*][*][*][#]

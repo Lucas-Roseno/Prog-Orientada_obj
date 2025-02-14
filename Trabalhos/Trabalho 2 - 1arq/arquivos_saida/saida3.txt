@@ -1,0 +1,23 @@
+Relatório de Resgate:
+- Número de astronautas resgatados: 6
+	- Sally Ride: Saúde 80, Atendimento Médico Urgente: Não, Posição: (5, 0)
+	- Gordon Cooper: Saúde 65, Atendimento Médico Urgente: Sim, Posição: (9, 2)
+	- John Glenn: Saúde 88, Atendimento Médico Urgente: Não, Posição: (11, 5)
+	- Eileen Collins: Saúde 95, Atendimento Médico Urgente: Não, Posição: (10, 10)
+	- Michael Collins: Saúde 75, Atendimento Médico Urgente: Sim, Posição: (3, 11)
+	- Mae Jemison: Saúde 85, Atendimento Médico Urgente: Não, Posição: (1, 11)
+- Lista de astronautas não resgatados:
+	- Scott Carpenter: Saúde 90, Atendimento Médico Urgente: Não, Posição: (4, 9)
+- Total de passos: 44 passos.
+[*][*][*][*][*][*][*][*][*][*][*][*]
+[*][#][#][#][.][.][.][#][.][.][.][*]
+[*][#][#][#][.][.][.][#][.][.][.][*]
+[*][~][~][~][.][.][.][F][.][.][.][*]
+[*][~][~][~][.][.][.][F][.][A][.][*]
+[*][~][~][~][.][.][.][F][.][F][.][*]
+[*][~][~][~][.][.][.][F][.][.][.][*]
+[*][.][.][.][F][.][.][.][.][.][*][*]
+[*][.][.][.][F][.][.][.][.][.][*][.]
+[*][*][*][.][.][.][.][.][.][.][*][.]
+[.][.][*][.][.][*][*][*][*][*][*][.]
+[.][.][*][*][*][*][.][.][.][.][.][.]
